@@ -4,7 +4,7 @@ namespace App\Http\Services;
 
 use App\Models\Question;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class QuestionService
 {
@@ -26,10 +26,10 @@ class QuestionService
     }
 
     /**
-     * @return Collection
+     * @return LengthAwarePaginator 
      */
-    public function getAllQuestions(): Collection {
-        return Question::all();
+    public function getAllQuestions(): LengthAwarePaginator  {
+        return Question::paginate(5);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use App\Models\Question;
 use App\Http\Services\QuestionService;
@@ -11,11 +12,11 @@ class QuestionController extends Controller
 {
     /**
      * @param QuestionService $questionService
-     * @return string
+     * @return RedirectResponse
      */
-    public function fetchInsert(QuestionService $questionService): string {
+    public function fetchInsert(QuestionService $questionService): RedirectResponse {
         $questionService->fetchInsert();
-        return 'Questions retreived from third party API and stored locally in the database';
+        return redirect()->to('/');
     }
 
     /**

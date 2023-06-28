@@ -14,5 +14,5 @@ use App\Http\Controllers\QuestionController;
 |
 */
 
-Route::get('/fetch', [QuestionController::class, 'fetchInsert']);
 Route::get('/', [QuestionController::class, 'show']);
+Route::post('store-form', [QuestionController::class, 'fetchInsert']);
